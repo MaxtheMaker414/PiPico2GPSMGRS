@@ -132,7 +132,7 @@ BACKLIGHT_COLOR = (0, 0, 50)  # gedimmtes Blau
 
 
 
-Die eigene Software nutzt pynmeagps von Semuconsulting.
+Die eigene Software nutzt als GPS Parser: pynmeagps von Semuconsulting.
 Diese Software unterliegt der folgenden Lizenz:
 
 BSD 3-Clause License ("BSD License 2.0", "Revised BSD License", "New BSD License", or "Modified BSD License")
