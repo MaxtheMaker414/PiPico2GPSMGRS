@@ -6,11 +6,11 @@ Dieses Projekt verbindet ein NMEA-kompatibles GPS-Modul über RS485 mit einem **
 
 ## 📦 Verwendete Hardware
 
-- 🧭 **NMEA-GPS-Modul** (z. B. Quectel, uBlox)
+- 🧭 **NMEA-GPS-Modul** (uBlox)
 - 🔌 **RS485-Konverter** (UART-basiert)
 - 🧠 **Raspberry Pi Pico 2**
-- 🖼️ **Pimoroni GFX Pack LCD (240x240 oder 128x64)**
-- 🔋 **externe Stromversorgung oder USB**
+- 🖼️ **Pimoroni GFX Pack LCD (128x64)**
+- 🔋 **2x Stromversorgung**
 
 ---
 
@@ -72,7 +72,7 @@ Dieses Projekt verbindet ein NMEA-kompatibles GPS-Modul über RS485 mit einem **
 
 - 🛰️ Satellitenanzahl
 - 📍 Latitude / Longitude
-- 🔁 **MGRS-Koordinaten (militärisch)**
+- 🔁 MGRS-Koordinaten
 - 🧭 Kurs (° und Symbol)
 - ⏰ UTC-Zeit & Datum
 - 🚀 Geschwindigkeit in km/h
@@ -128,15 +128,3 @@ BACKLIGHT_COLOR = (0, 0, 50)  # gedimmtes Blau
 - 💡 Helligkeit steuerbar per Tasten
 - 📈 Anzeige von DOP-Werten (PDOP/HDOP/VDOP)
 - 📍 Zielnavigation / Richtungsführung
-
----
-
-## 🤝 Mitmachen & Support
-
-Dieses Projekt ist offen für Erweiterungen!  
-PRs, Ideen und Verbesserungen sind willkommen – gerne auch über Issues.
-
----
-
-**Lizenz:** MIT  
-**Autor:** Deine Projektgruppe 🚀
