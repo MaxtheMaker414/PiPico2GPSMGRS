@@ -1,26 +1,52 @@
 # config.py
 
-# Display-Helligkeit
-DISPLAY_BRIGHTNESS = 0.5
+# ------------------------------------------------------
+# 💡 Display-Helligkeit (Wert: 0.0 – 1.0)
+# ------------------------------------------------------
+# Diese Einstellung beeinflusst die eigentliche Display-Hintergrundhelligkeit,
+# nicht die RGB-Hintergrundbeleuchtung des Boards.
+# Wert 0 = dunkel, 1 = maximale Helligkeit
+DISPLAY_BRIGHTNESS = 0.5  # Empfehlung: 0.3–0.6 für angenehmes Ablesen
 
-# Backlight-Farbe als RGB-Tupel
-BACKLIGHT_COLOR = (255, 0, 0)
+# ------------------------------------------------------
+# 🌈 RGB-Backlight Farbe (nur für Pimoroni GFX Pack)
+# ------------------------------------------------------
+# Diese RGB-Werte steuern die separate Hintergrund-LED des GFX-Packs.
+# Wertebereich pro Kanal: 0–255
+# Beispiel:
+# - (255, 0, 0)   → Rot
+# - (0, 255, 0)   → Grün
+# - (0, 0, 255)   → Blau
+# - (0, 0, 0)     → Aus
+# - (0, 0, 50)    → Dunkelblau für Nachtmodus
+BACKLIGHT_COLOR = (0, 0, 255)
 
-# Hintergrund- und Vordergrundfarbe
-BACKGROUND_COLOR = 0    # Schwarz
-FOREGROUND_COLOR = 15   # Weiß
+# ------------------------------------------------------
+# 🎨 Farben für Text und Hintergrund auf dem Display
+# ------------------------------------------------------
+# FOREGROUND_COLOR → Farbe für Text und Symbole
+# BACKGROUND_COLOR → Farbe für leeren Hintergrund (Clear-Screen)
+# Farbbereiche hängen vom Displaytyp ab – meist 0–15 (4 Bit)
+BACKGROUND_COLOR = 0    # 0 = Schwarz
+FOREGROUND_COLOR = 15   # 15 = Weiß
 
+# ------------------------------------------------------
+# 🛠 Initialisierung der Hintergrundbeleuchtung
+# ------------------------------------------------------
+# Diese Funktion wird beim Start ausgeführt und steuert:
+# - RGB-Farbe
+# - Display-Helligkeit separat
 def init_backlight(board, display):
     """
-    Setzt die Hintergrundbeleuchtung (RGB-Farbe) und dunkelt das Display selbst ab (0).
+    Setzt die Hintergrundbeleuchtung (RGB-Farbe) und Display-Helligkeit.
     """
-    # Erst Farbhintergrund der LED(s) setzen
     board.set_backlight(*BACKLIGHT_COLOR)
+    display.set_backlight(DISPLAY_BRIGHTNESS)
 
-    # Zusätzlich Display-Helligkeit auf 0 setzen
-    display.set_backlight(0)
 
-# Die restlichen Einstellungen, Dummy-Daten usw. bleiben unverändert
+# ------------------------------------------------------
+# 📄 Seiten-Management (optional bei mehrseitigem System)
+# ------------------------------------------------------
 PAGES = {
     1: True,
     2: True,
@@ -30,8 +56,11 @@ PAGES = {
     6: True
 }
 
-START_PAGE = 1
-# Live-Daten vom Parser
+START_PAGE = 1  # Startseite beim Start (Index basiert auf 0 → Seite 1 = Index 0)
+
+# ------------------------------------------------------
+# 📡 Live-Daten vom GPS-Parser (werden dynamisch gesetzt)
+# ------------------------------------------------------
 CURRENT_MGRS = ""
 NUM_SATS = 0
 FIX_TYPE = "No Fix"
@@ -40,12 +69,13 @@ COURSE = "0"
 DATE_UTC = "------"
 TIME_UTC = "--:--:--"
 
-# Steuerflag für Display-Update
+# ------------------------------------------------------
+# 🔁 Anzeige-Aktualisierung vom Parser auslösen
+# ------------------------------------------------------
 SHOULD_REFRESH_DISPLAY = False
 
-# Dummy nur für Batterie
+# ------------------------------------------------------
+# 🔋 Batterieanzeige – Dummywert (kann später aus ADC kommen)
+# ------------------------------------------------------
 DUMMY_BATTERY_VOLTAGE = 3.7
 
-
-#DUMMY_SATELLITES = 5
-#DUMMY_FIX = True
