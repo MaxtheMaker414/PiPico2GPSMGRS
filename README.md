@@ -1,6 +1,7 @@
-# 🛰️ RS485 GPS Logger mit MGRS-Anzeige auf Pico 2 + GFX Pack
+# 🛰️ GPS Logger mit MGRS-Anzeige 20+m Verlängerung zur GPS Antenne (Tauchergps)
 
 Dieses Projekt verbindet ein NMEA-kompatibles GPS-Modul über RS485 mit einem **Raspberry Pi Pico 2**, nutzt die **Pimoroni GFX LCD-Anzeige** und zeigt live **MGRS-Koordinaten, Kurs, Uhrzeit und Systemstatus** an. Die Daten werden über einen Parser interpretiert und als Seiten auf dem Display dargestellt.
+Ziel ist die Verwendung als Unterwasser GPS zur Navigation mit einer GPS Oberflächenboje.
 
 ---
 
